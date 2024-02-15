@@ -9,7 +9,7 @@ const guestNav = [
 ]
 
 const userNav = [
-    { to: '/User', text: 'หน้าหลัก' },
+    { to: '/User', text: 'คลอส' },
     { to: '/Pro', text: 'โปรไฟล์' },
     { to: '/new', text: 'ตะกร้า' },
     { to: '/tri', text: 'เทรนเนอร์' },
