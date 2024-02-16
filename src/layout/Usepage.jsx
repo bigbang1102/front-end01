@@ -29,15 +29,18 @@ export default function Usepage() {
 
             <div className="navbar bg-base-100">
                 <div className="flex-10">
-                    <a className="btn btn-ghost text-xl">Hello* {user?.id ? user.username : 'Word'}</a>
+                    <a className="btn btn-ghost text-xl">Hello* {user?.id ? user.username : 'word'}</a>
                 </div>
 
             </div>
             <div className="flex-1">
-
+                <p>Admin login</p>
+                <p>Username:zxc</p>
+                <p>Password:1234566</p>
                 <div className="navbar bg-base-100">
                     <div className="navbar bg-base-10">
                         <div className="navbar-start">
+
                             <div className="dropdown">
                             </div>
                         </div>
@@ -53,8 +56,10 @@ export default function Usepage() {
                                     {finalNav.map(el => (
                                         <li key={el.to}>
                                             <Link to={el.to}>{el.text}</Link>
+
                                         </li>
                                     ))}
+
                                 </ul>
 
                             </div>
