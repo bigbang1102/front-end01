@@ -10,17 +10,27 @@ import Userprofile from '../layout/Userprofile'
 import Trainner from '../components/Trainner'
 import About from '../components/About'
 import Homepage from '../components/Homepage'
+import AdminDashbord from '../Admin/AdminDashbord'
+import AdminHome from '../Admin/AdminHome'
+import Adminheader from '../Admin/Adminheader'
+import Admininformation from '../Admin/Admininformation'
+import Adminmenu from '../Admin/Adminmenu'
+import Usepage from '../layout/Usepage'
+
+
 
 const guestRouter = createBrowserRouter([
   {
     path: '/',
     element: <>
-      <Header />
+      <Usepage />
       <Outlet />
     </>,
     children: [
       { index: true, element: <LoginForm /> },
-      { path: '/register', element: <RegisterForm /> }
+      { path: '/login', element: <LoginForm /> },
+      { path: '/register', element: <RegisterForm /> },
+      // { path: '/Admininformation', element: <Admininformation /> },
     ]
   }
 ])
@@ -46,9 +56,26 @@ const userRouter = createBrowserRouter([
   }
 ])
 
+const adminRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <div className='flex flex-row px-4 py-6 gap-x-4'>
+      <Adminmenu />
+      <Outlet />
+    </div>,
+    children: [
+      { index: true, element: <AdminHome /> },
+      { path: '/AdminHome', element: <AdminHome to='/' /> },
+      { path: '/AdminDashbord', element: <AdminDashbord /> },
+      { path: '/Adminheader', element: <Adminheader to='/' /> },
+      { path: '/Admininformation', element: <Admininformation /> },
+    ]
+  }
+])
+
 export default function AppRouter() {
   const { user } = useAuth()
-  const finalRouter = user?.id ? userRouter : guestRouter
+  const finalRouter = !user?.id ? guestRouter : user.role === 'ADMIN' ? adminRouter : userRouter
   return (
     <>
       <RouterProvider router={finalRouter} />
