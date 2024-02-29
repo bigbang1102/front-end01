@@ -48,7 +48,18 @@ export default function Clausform() {
             setShowPopup(false);
         }, 3000);
     }
+    const [cartItems, setCartItems] = useState([]);
 
+    const addToCart = (product) => {
+        setCartItems([...cartItems, product]);
+    };
+
+    // ฟังก์ชันสำหรับเพิ่มสินค้าเข้าตะกร้า
+    const handleAddToCart = (product) => {
+        addToCart(product);
+        // เรียกใช้ฟังก์ชันเพื่อแสดง Popup หรือข้อความแจ้งเตือน
+        hdlSuccess();
+    };
     return (
 
         <form
@@ -63,14 +74,14 @@ export default function Clausform() {
             <div>
                 <label className="form-control w-[500px]">
                     <div className="label">
-                        <span className="label-text text-white">details</span>
+                        <span className="label-text text-white">Details</span>
                     </div>
                     <input
                         type="text"
                         placeholder="Type here"
                         className="input input-bordered w-full"
-                        name="title"
-                        value={input.title}
+                        name="details"
+                        value={input.details}
                         onChange={hdlChange}
                     />
                 </label>
@@ -89,17 +100,18 @@ export default function Clausform() {
                 </label>
                 <label className="form-control w-[500px]">
                     <div className="label">
-                        <span className="label-text text-white">Detail</span>
+                        <span className="label-text text-white">Quantity</span>
                     </div>
                     <input
                         type="text"
                         placeholder="Type here"
                         className="input input-bordered h-[200px]"
-                        name="detail"
-                        value={input.detail}
+                        name="quantity"
+                        value={input.quantity}
                         onChange={hdlChange}
                     />
                 </label>
+
                 <button type="submit" className="btn btn-primary mt-5 ml-96 " onClick={hdlSuccess}>Add new</button>
                 {showPopup && (
                     <div className={`popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 border border-gray-300 rounded z-10 ${showPopup ? 'block' : 'hidden'}`}>
@@ -160,13 +172,14 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         1566
                                     </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
+                                    <td class="px-3 py-2">
+                                        <a href="/new" onClick={() => handleAddToCart(product)} class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Add to Cart</a>
+                                        {/* <Clausform addToCart={addToCart} /> */}
                                     </td>
                                 </tr>
                                 <tr
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <td class="w-4 p-4">
+                                    <td class="px-3 py-2">
                                         <div class="flex items-center">
 
                                             <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
@@ -184,8 +197,8 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         999
                                     </td>
-                                    <td class="px-6 py-4">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
+                                    <td class="px-3 py-2">
+                                        <a href="#" class="font-medium text-blue-200 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
                                 </tr>
                                 <tr
@@ -208,7 +221,7 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         500
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-3 py-2">
                                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
                                 </tr>
@@ -232,7 +245,7 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         799
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-3 py-2">
                                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
                                 </tr>
@@ -256,7 +269,7 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         2999
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-3 py-2">
                                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
                                 </tr>
@@ -280,7 +293,7 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         399
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-3 py-2">
 
                                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
@@ -305,7 +318,7 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         699
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-3 py-2">
                                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
                                 </tr>
@@ -329,7 +342,7 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         800
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-3 py-2">
                                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
                                 </tr>
@@ -353,7 +366,7 @@ export default function Clausform() {
                                     <td class="px-6 py-4">
                                         15000
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-3 py-2">
                                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">เพิ่มไปที่ตะกร้า</a>
                                     </td>
                                 </tr>

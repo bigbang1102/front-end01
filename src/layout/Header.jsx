@@ -11,6 +11,7 @@ const guestNav = [
 const userNav = [
     { to: '/User', text: 'คลอส' },
     { to: '/Pro', text: 'โปรไฟล์' },
+    { to: '/Crud', text: 'เพิ่มข้อมูล' },
     { to: '/new', text: 'ตะกร้า' },
     { to: '/Tri', text: 'เทรนเนอร์' },
     { to: '/Con', text: 'ติดต่อ' },

@@ -417,9 +417,16 @@ const options = {
             top: -20
         },
     },
-    fill: {
-        opacity: 1,
-    }
+    responsive: [{
+        breakpoint: 600,
+        options: {
+            plotOptions: {
+                bar: {
+                    borderRadius: 6,
+                }
+            }
+        }
+    }]
 }
 
 if (document.getElementById("bar-chart") && typeof ApexCharts !== 'undefined') {

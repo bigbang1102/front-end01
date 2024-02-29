@@ -4,7 +4,6 @@ import RegisterForm from '../layout/RegisterForm'
 import useAuth from '../hooks/useAuth'
 import Header from '../layout/Header'
 import UserHome from '../layout/UserHome'
-import Product from '../layout/product'
 import Contact from '../layout/Contact'
 import Userprofile from '../layout/Userprofile'
 import Trainner from '../components/Trainner'
@@ -16,8 +15,9 @@ import Adminheader from '../Admin/Adminheader'
 import Admininformation from '../Admin/Admininformation'
 import Adminmenu from '../Admin/Adminmenu'
 import Usepage from '../layout/Usepage'
-
-
+import Crudform from '../components/Crudform'
+import Product from '../layout/Product'
+import Selat from '../Admin/Selat'
 
 const guestRouter = createBrowserRouter([
   {
@@ -52,6 +52,7 @@ const userRouter = createBrowserRouter([
       { path: '/Tri', element: <Trainner /> },
       { path: '/About', element: <About /> },
       { path: '/Home', element: <Homepage /> },
+      { path: '/Crud', element: <Crudform /> },
     ]
   }
 ])
@@ -69,6 +70,7 @@ const adminRouter = createBrowserRouter([
       { path: '/AdminDashbord', element: <AdminDashbord /> },
       { path: '/Adminheader', element: <Adminheader to='/' /> },
       { path: '/Admininformation', element: <Admininformation /> },
+      { path: '/Selat', element: <Selat /> },
     ]
   }
 ])
