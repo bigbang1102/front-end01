@@ -11,11 +11,12 @@ export default function Modal(props) {
     const [status, setStatus] = useState([]);
 
     useEffect(() => {
-        let allStatus = JSON.parse(localStorage.getItem("status"));
+        let allStatus = JSON.parset(localStorage.getItem("status"));
         if (allStatus) {
             setStatus(allStatus);
         } else {
             const run = async () => {
+                // console.log(response.data);
                 try {
                     const token = localStorage.getItem("token");
                     const rs = await axios.get("http://localhost:8889/claus/claust", {

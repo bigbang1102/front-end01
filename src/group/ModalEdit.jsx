@@ -11,9 +11,15 @@ export default function ModalEdit(props) {
     });
     const [status, setStatus] = useState([]);
     useEffect(() => {
-        const allStatus = JSON.parse(localStorage.getItem('status'));
-        if (allStatus) {
-            setStatus(allStatus);
+        const statusData = localStorage.getItem('status');
+        if (statusData) {
+            try {
+                const allStatus = JSON.parse(statusData);
+                setStatus(allStatus);
+            } catch (error) {
+                console.error("Error parsing JSON:", error.message);
+                // จัดการข้อผิดพลาดที่เกิดขึ้นในการแปลง JSON ได้ที่นี่
+            }
         } else {
             const run = async () => {
                 try {
@@ -30,7 +36,6 @@ export default function ModalEdit(props) {
             run();
         }
     }, []);
-
 
     useEffect(() => {
         setInput({
@@ -65,7 +70,7 @@ export default function ModalEdit(props) {
                 <form className="flex flex-col border rounded w-5/6 mx-auto p-4 gap-6" onSubmit={handleSubmit}>
                     <label className="form-control w-full">
                         <div className="label">
-                            <span className="label-text">ชื่อร้าน</span>
+                            <span className="label-text">ชื่อคลอส</span>
                         </div>
                         <input
                             type="text"
@@ -78,7 +83,7 @@ export default function ModalEdit(props) {
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
-                            <span className="label-text">ที่อยู่ร้าน</span>
+                            <span className="label-text">รูปเเบบที่ต้องการ</span>
                         </div>
                         <input
                             type="text"
@@ -91,7 +96,7 @@ export default function ModalEdit(props) {
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
-                            <span className="label-text">quantity</span>
+                            <span className="label-text">ชั่วโมง</span>
                         </div>
                         <input
                             type="text"
