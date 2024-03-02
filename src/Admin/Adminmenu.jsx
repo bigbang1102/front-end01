@@ -12,7 +12,7 @@ export default function Adminmenu() {
     }
     return (
         <>
-            <nav className='sticky left-0 flex flex-col w-2/12 h-screen px-3 gap-y-5 bg-gray-100'>
+            <nav className='sticky left-0 flex flex-col w-50 h-screen px-3 gap-y-5 bg-gray-100'>
                 <div className="p-4">
                     <h2 className="text-lg font-semibold mb-4 text-black">เมนูจัดการ</h2>
                     <div className="mb-2">

@@ -15,8 +15,8 @@ export default function Crudform() {
         if (name.trim() !== '' && quantity.trim() !== '') {
             const newItem = { name, quantity };
             setItems(prevItems => [...prevItems, newItem]);
-            setName('prevState');
-            setQuantity(' useState');
+            setName('');
+            setQuantity('');
         }
     };
 
@@ -84,7 +84,7 @@ export default function Crudform() {
                 </button>
             )}
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                <h2 style={{ textAlign: 'center' }}>Product List</h2>
+                <h2 style={{ textAlign: 'center' }}>Product </h2>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>

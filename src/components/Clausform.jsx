@@ -71,54 +71,7 @@ export default function Clausform() {
                     <Link to="/">Home</Link>
                 </h1>
             </div>
-            <div>
-                <label className="form-control w-[500px]">
-                    <div className="label">
-                        <span className="label-text text-white">Details</span>
-                    </div>
-                    <input
-                        type="text"
-                        placeholder="Type here"
-                        className="input input-bordered w-full"
-                        name="details"
-                        value={input.details}
-                        onChange={hdlChange}
-                    />
-                </label>
-                <label className="form-control w-[500px]">
-                    <div className="label">
-                        <span className="label-text text-white">Price</span>
-                    </div>
-                    <input
-                        type="number"
-                        placeholder="Type here"
-                        className="input input-bordered w-[500px]"
-                        name="price"
-                        value={input.price}
-                        onChange={hdlChange}
-                    />
-                </label>
-                <label className="form-control w-[500px]">
-                    <div className="label">
-                        <span className="label-text text-white">Quantity</span>
-                    </div>
-                    <input
-                        type="text"
-                        placeholder="Type here"
-                        className="input input-bordered h-[200px]"
-                        name="quantity"
-                        value={input.quantity}
-                        onChange={hdlChange}
-                    />
-                </label>
 
-                <button type="submit" className="btn btn-primary mt-5 ml-96 " onClick={hdlSuccess}>Add new</button>
-                {showPopup && (
-                    <div className={`popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 border border-gray-300 rounded z-10 ${showPopup ? 'block' : 'hidden'}`}>
-                        <p>Success</p>
-                    </div>
-                )}
-            </div>
             <div>
                 <div>
 

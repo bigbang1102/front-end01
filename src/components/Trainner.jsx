@@ -1,33 +1,94 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import Showuser from "./Showuser";
-import Todocard from "./Todocard";
+import React, { useState } from "react";
+
+
 export default function Trainner() {
-    const [claus, setclaus] = useState([]);
+    const [input, setInput] = useState({
+        details: "",
+        price: "",
+        quantity: "",
+    });
 
-    useEffect(() => {
-        const fetchclausData = async () => {
-            try {
-                const response = await axios.get('http://localhost:8889/admin/claus', {
-                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-                });
-                setclaus(response.data);
-            } catch (error) {
-                console.error(error);
+    const hdlChange = (e) => {
+        setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const hdlSubmit = async (e) => {
+        try {
+            e.preventDefault();
+
+            if (!input.details || !input.price || !input.quantity) {
+                alert("กรอกข้อมูลให้ครบ");
+                return;
             }
-        };
-        fetchclausData()
-    }, [])
+            const token = localStorage.getItem("token");
+            const rs = await axios.post("http://localhost:8889/claus/addclaus/", input,
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                }
+            );
+
+
+            alert("Create new OK");
+        } catch (err) {
+            alert(err.message);
+        }
+    };
+
     return (
-        <div>
-            <h1>หน้าหลัก User</h1>
-            {
-                claus.map((el) => (
-                    <Todocard key={el.id} el />
-                ))
-            }
+        <>
+            <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
 
-            {JSON.stringify(claus)}
-        </div>
+                <div className="text-3xl mb-6 font-bold text-center text-blue-600"></div>
+                <div className="p-12  border w-full md:w-3/4 lg:w-3/4 xl:w-3/4 mx-auto rounded-lg mt-10 bg-gradient-to-r bg-gray-300/100 shadow-md">
+                    <form onSubmit={hdlSubmit}>
+                        <label className="form-control w-full ">
+                            <div className="label">
+                                <span className="label-text text-black">details</span>
+                            </div>
+                            <input
+                                type="text"
+                                placeholder="details"
+                                className="input input-bordered w-full "
+                                name="details"
+                                value={input.details}
+                                onChange={hdlChange}
+                            />
+                        </label>
+                        <label className="form-control w-full ">
+                            <div className="label">
+                                <span className="label-text text-black">price</span>
+                            </div>
+                            <input
+                                type="text"
+                                placeholder="price"
+                                className="input input-bordered w-full "
+                                name="price"
+                                value={input.price}
+                                onChange={hdlChange}
+                            />
+                        </label>
+                        <label className="form-control w-full ">
+                            <div className="label">
+                                <span className="label-text text-black">quantity</span>
+                            </div>
+                            <input
+                                type="text"
+                                placeholder="quantity"
+                                className="input input-bordered w-full "
+                                name="quantity"
+                                value={input.quantity}
+                                onChange={hdlChange}
+                            />
+                        </label>
+                        <br />
+                        <div>
+                            <button className="btn px-4 btn-info hover:bg-blue-700 text-sm font-semibold text-gray-600 mb-1">กดหนูหน่อย!!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </>
     )
 }

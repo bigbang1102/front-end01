@@ -18,6 +18,9 @@ import Usepage from '../layout/Usepage'
 import Crudform from '../components/Crudform'
 import Product from '../layout/Product'
 import Selat from '../Admin/Selat'
+import ClausCard from '../group/ClausCard'
+import SetShowuser from '../components/SetShowuser'
+
 
 const guestRouter = createBrowserRouter([
   {
@@ -53,6 +56,8 @@ const userRouter = createBrowserRouter([
       { path: '/About', element: <About /> },
       { path: '/Home', element: <Homepage /> },
       { path: '/Crud', element: <Crudform /> },
+      { path: '/Claus', element: <ClausCard /> },
+      { path: '/SetShowuser', element: <SetShowuser /> },
     ]
   }
 ])

@@ -16,6 +16,7 @@ const userNav = [
     { to: '/Tri', text: 'เทรนเนอร์' },
     { to: '/Con', text: 'ติดต่อ' },
 
+
 ]
 
 export default function Header() {
@@ -51,6 +52,7 @@ export default function Header() {
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     <li><Link to='/Home'>Homepage</Link></li>
                                     <li><Link to='/About'>About</Link></li>
+                                    <li><Link to='/SetShowuser'>เเสดงข้อมูล</Link></li>
                                     {user?.id && (
                                         <li className='btn-error'>
                                             <Link to='#' className="text-red-500" onClick={hdlLogout}>Logout</Link>
