@@ -10,7 +10,7 @@ export default function ClausCard(props) {
         try {
             e.stopPropagation()
             const token = localStorage.getItem('token')
-            let rs = await axios.delete(`http://localhost:8889/claus/claust${el.id}`, {
+            let rs = await axios.delete(`http://localhost:8889/claus/${el.id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             alert('Delete successful')

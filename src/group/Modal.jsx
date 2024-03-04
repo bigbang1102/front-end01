@@ -111,7 +111,7 @@ export default function Modal(props) {
             <form method="dialog" className="modal-backdrop">
                 <button>ยกเลิก</button>
             </form>
-            <Setvenue />
+
         </dialog>
     );
 }

@@ -18,7 +18,6 @@ export default function ModalEdit(props) {
                 setStatus(allStatus);
             } catch (error) {
                 console.error("Error parsing JSON:", error.message);
-                // จัดการข้อผิดพลาดที่เกิดขึ้นในการแปลง JSON ได้ที่นี่
             }
         } else {
             const run = async () => {
@@ -107,7 +106,7 @@ export default function ModalEdit(props) {
                             onChange={handleChange}
                         />
                     </label>
-                    <button type="submit" className="btn btn-primary">เเก้ไข</button>
+                    <button type="submit" className="btn btn-primary" onClick={closeModal}>เเก้ไข</button>
                     <button type="button" className="btn btn-secondary" onClick={closeModal}>
                         ยกเลิก
                     </button>

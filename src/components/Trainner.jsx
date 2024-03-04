@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import SetShowuser from "./SetShowuser";
 
 
 export default function Trainner() {
@@ -16,7 +17,6 @@ export default function Trainner() {
     const hdlSubmit = async (e) => {
         try {
             e.preventDefault();
-
             if (!input.details || !input.price || !input.quantity) {
                 alert("กรอกข้อมูลให้ครบ");
                 return;
@@ -44,7 +44,7 @@ export default function Trainner() {
                     <form onSubmit={hdlSubmit}>
                         <label className="form-control w-full ">
                             <div className="label">
-                                <span className="label-text text-black">details</span>
+                                <span className="label-text text-black">รูปเเบบการออกกำลังกายที่อยากได้</span>
                             </div>
                             <input
                                 type="text"
@@ -57,7 +57,7 @@ export default function Trainner() {
                         </label>
                         <label className="form-control w-full ">
                             <div className="label">
-                                <span className="label-text text-black">price</span>
+                                <span className="label-text text-black">โค้ด</span>
                             </div>
                             <input
                                 type="text"
@@ -70,7 +70,7 @@ export default function Trainner() {
                         </label>
                         <label className="form-control w-full ">
                             <div className="label">
-                                <span className="label-text text-black">quantity</span>
+                                <span className="label-text text-black">ชั่วโมง</span>
                             </div>
                             <input
                                 type="text"
@@ -88,7 +88,7 @@ export default function Trainner() {
                     </form>
                 </div>
             </div>
-
+            <div><SetShowuser /></div>
         </>
     )
 }
