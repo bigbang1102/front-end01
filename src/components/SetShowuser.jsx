@@ -32,7 +32,7 @@ export default function SetShowuser() {
     return (
 
         <div className="flex flex-col gap-4">
-            <div className="text-center text-2xl text-blue-500">ข้อมูลของท่าน</div>
+            <div className="text-center text-2xl text-blue-500"><h2>ข้อมูลของท่าน</h2></div>
             <ModalEdit el={claust[editIdx]} closeModal={closeModal} setTrigger={setTrigger} />
             <div className="flex flex-col gap-4">
                 {claust.map((el) => (

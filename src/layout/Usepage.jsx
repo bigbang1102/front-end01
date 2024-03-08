@@ -35,11 +35,11 @@ export default function Usepage() {
             </div>
             <div className="flex-1">
                 <div>
-                    <p>Admin login</p>
+                    <h2 className='text-center'>Admin login</h2>
                 </div>
-                <p>Username:zxc</p>
-                <p>Password:1234566</p>
-                <p>userลงทะเบียนregisterปกติ</p>
+                <h2 className='text-center'>Username:zxc</h2>
+                <h2 className='text-center'>Password:1234566</h2>
+                <h2 className='text-center'>userลงทะเบียนregisterปกติ</h2>
                 <div className="navbar bg-base-100">
                     <div className="navbar bg-base-10">
                         <div className="navbar-start">
